@@ -23,7 +23,7 @@ const questions = [
 //starting conditions 
 let quizQuestionIndex = 0;
 let timerID;
-let timeCount = questions.length * 5;
+let timeCount = questions.length * 15;
 
 
 //DOM variables
@@ -66,13 +66,27 @@ function runClock() {
     timeCount--;
     timerEl.textContent = "Time Remaining: " + timeCount;
     if(!timeCount) {
-        alert('You have run out of time');
+        alert('You have run out of time.');
         clearInterval(timerID);
     }
 }
 
 
 
+
+function playSound(name) {
+    let audio = new Audio('assets/sounds/' + name + '.mp3');
+    audio.play();
+}
+
+function showFunnyImage(name) {
+    let funnyImage = new Image();
+    funnyImage.src = 'assets/images/' + name + '.jpeg'
+    document.body.appendChild(funnyImage);
+    setTimeout(function() {
+        funnyImage.classList.add('hide')
+    }, 1000)
+}
 
 
 
