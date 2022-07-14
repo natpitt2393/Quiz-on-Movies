@@ -58,6 +58,7 @@ function askQuestions() {
     for (let i = 0; i < choiceArray.length; i++) {
         let choiceButtonEl = document.createElement('button');
         choiceButtonEl.textContent = choiceArray[i];
+        choiceButtonEl.setAttribute('value', choiceArray[i]);
         choicesEl.appendChild(choiceButtonEl);
     }
 }
@@ -72,7 +73,7 @@ function runClock() {
 }
 
 function handleChoices(event) {
-    let choiceValue = event.target.textContent 
+    let choiceValue = event.target.getAttribute('value');
     // console.log(event.target);
     console.log(choiceValue);
     if (choiceValue === questions[quizQuestionIndex].answer) {
